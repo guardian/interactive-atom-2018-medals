@@ -12,6 +12,8 @@ import * as d3 from "d3"
 // import fs from "fs"
 import _filter from 'lodash/filter'
 
+import _ from 'lodash'
+
 import config from '../config.json'
 //
 // const maxDiff = d3.max(countryPerformanceJson, d => Math.abs(d.diff));
@@ -136,19 +138,17 @@ import config from '../config.json'
 //
 // // fs.writeFileSync("./src/assets/data/test.json", JSON.stringify(nestedMedalsByDiscipline))
 //
-// const score = country => country.medalCount.gold + country.medalCount.silver/100 + country.medalCount.bronze/10000
-//
-// const rankReduce = (interm, cur, i, arr) => {
-//
-//     if(interm.length === 0) { return [i] }
-//
-//     const lastIndex = interm.slice(-1)[0]
-//
-//     return score(cur) < score(arr[lastIndex]) ? interm.concat(i) : interm.concat(lastIndex)
-//
-// }
-//
-// const ranks = medalTableJson.reduce(rankReduce, []).map(i => i + 1)
+const score = country => Number(country.gold) + Number(country.silver/100) + Number(country.bronze/10000)
+
+const rankReduce = (interm, cur, i, arr) => {
+
+    if(interm.length === 0) { return [i] }
+
+    const lastIndex = interm.slice(-1)[0]
+
+    return score(cur) < score(arr[lastIndex]) ? interm.concat(i) : interm.concat(lastIndex)
+
+}
 
 // const medalTable = medalTableJson.map((country, i) => {
 //     let goldMedals = [];
@@ -192,9 +192,13 @@ import config from '../config.json'
 function sortCountries(countries){
 
 
+    const ranks = countries.reduce(rankReduce, []).map(i => i + 1)
 
+    const sorted = _(countries).map( (c, i) => Object.assign({}, c, { rank : ranks[i] }))
+        .orderBy([ 'rank', 'country' ], ['asc', 'asc'])
+        .valueOf()
 
-
+    return sorted
 }
 
 
@@ -213,7 +217,7 @@ export async function render() {
 
     var countryTotals = sortCountries(doc.sheets.data)
 
-
+    console.log(countryTotals)
 
     const renderHeader = Mustache.render(header, {
         "headlineFirst": doc.sheets.header[0].headlineFirst,
