@@ -1,0 +1,404 @@
+<!-- <div class="dropdown inner">
+    <select name="countries" id="countries-dropdown">
+        {{#countryCodes}}
+        <option value="{{1}}">{{0}}</option>
+        {{/countryCodes}}
+    </select>
+</div> -->
+<div class="breaker top-breaker"></div>
+<div class="breaker"></div>
+<div class="breaker"></div>
+<div class="breaker"></div>
+<div class="block" data-title="Leaderboard">
+    <div class="leaderboard-top">
+    {{#topCountries}}
+        <div class="country-block {{olympicCountry.abbreviation}}">
+            <div class="country-header-wrapper">
+
+                {{#noMedals}}
+                <span class='pye-rank-dash'>–</span>
+                {{/noMedals}}
+
+                {{^noMedals}}
+                <img class="number" src="<%= path %>/assets/numbers/{{rank}}.svg" />
+                {{/noMedals}}
+
+
+                <div class="country-header">
+                    <div class="flag flag-ioc-{{lowerCaseAbbreviation}} flag-large"></div>
+                    <div class="top-country-name">{{preferableName}}</div>
+                </div>
+            </div>
+            <div class="medals">
+
+                <div class="top-medals">
+                    {{#goldMedals}}
+                        {{#list}}
+                        <div class="medal-block medal-block--gold"></div>
+                        {{/list}}
+                        <span class="medals-total">{{total}}</span>
+                    {{/goldMedals}}
+                </div>
+                <div class="top-medals">
+                    {{#silverMedals}}
+                    {{#list}}
+                    <div class="medal-block medal-block--silver"></div>
+                    {{/list}}
+                    <span class="medals-total">{{total}}</span>
+                    {{/silverMedals}}
+                </div>
+                <div class="top-medals">
+                    {{#bronzeMedals}}
+                    {{#list}}
+                    <div class="medal-block medal-block--bronze"></div>
+                    {{/list}}
+                    <span class="medals-total">{{total}}</span>
+                    {{/bronzeMedals}}
+                </div>
+                <img class="big-total" src="<%= path %>/assets/T.svg" alt="">
+                <span class="medals-total">
+                     {{allMedals.total}}
+                </span>
+                <!-- <div class="big-total"><span>{{allMedals.total}}</span></div> -->
+            </div>
+        </div>
+    {{/topCountries}}
+    {{#secondTierCountries}}
+    <div class="second-tier-desktop">
+        <div class="country-block {{olympicCountry.abbreviation}}">
+            <div class="country-header-wrapper">
+        
+                {{#noMedals}}
+                <span class='pye-rank-dash'>–</span>
+                {{/noMedals}} {{^noMedals}}
+                <img class="number" src="<%= path %>/assets/numbers/{{rank}}.svg" /> {{/noMedals}}
+        
+        
+                <div class="country-header">
+                    <div class="flag flag-ioc-{{lowerCaseAbbreviation}} flag-large"></div>
+                    <div class="top-country-name">{{preferableName}}</div>
+                </div>
+            </div>
+            <div class="medals">
+        
+                <div class="top-medals">
+                    {{#goldMedals}} {{#list}}
+                    <div class="medal-block medal-block--gold"></div>
+                    {{/list}}
+                    <span class="medals-total">{{total}}</span>
+                    {{/goldMedals}}
+                </div>
+                <div class="top-medals">
+                    {{#silverMedals}} {{#list}}
+                    <div class="medal-block medal-block--silver"></div>
+                    {{/list}}
+                    <span class="medals-total">{{total}}</span>
+                    {{/silverMedals}}
+                </div>
+                <div class="top-medals">
+                    {{#bronzeMedals}} {{#list}}
+                    <div class="medal-block medal-block--bronze"></div>
+                    {{/list}}
+                    <span class="medals-total">{{total}}</span>
+                    {{/bronzeMedals}}
+                </div>
+                <img class="big-total" src="<%= path %>/assets/T.svg" alt="">
+                <span class="medals-total">
+                    {{allMedals.total}}
+                </span>
+            </div>
+        </div>
+    </div>
+    {{/secondTierCountries}}
+    </div>
+    <div class="other-country-block--full {{olympicCountry.abbreviation}} second-tier-mobile">
+    {{#secondTierCountries}}
+        <div class="other-country">
+            <div class="rank-flag">
+                <span class="other-country-rank">{{{rank}}}</span>
+                <span class="flag flag-ioc-{{lowerCaseAbbreviation}} flag-medium flag-margin"></span>
+            </div>
+            <div class="other-country-details">
+                <div class="other-country-name">
+                    {{preferableName}}
+                </div>
+                <span class="other-country-medals">
+                    <div class="medal-pair">
+                        <span class="medal-block medal-block--gold medal-block--small"></span>
+                        {{goldMedals.total}}
+                    </div>
+                    <div class="medal-pair">
+                        <span class="medal-block medal-block--silver medal-block--small"></span>
+                        {{silverMedals.total}}
+                    </div>
+                    <div class="medal-pair">
+                        <span class="medal-block medal-block--bronze medal-block--small"></span>
+                        {{bronzeMedals.total}}
+                    </div>
+                    <div class="medal-pair medal-pair--all">
+                        <div class="medal-stack">
+                            <span class="medal-block medal-block--gold medal-block--small"></span>
+                            <span class="medal-block medal-block--silver medal-block--small"></span>
+                            <span class="medal-block medal-block--bronze medal-block--small"></span>
+                        </div>
+                        {{allMedals.total}}
+                    </div>
+                </span>
+            </div>
+        </div>
+    {{/secondTierCountries}}
+    </div>
+     <!-- <div class="other-country-block--full {{olympicCountry.abbreviation}}">
+        {{#topCountries}}
+        <div class="other-country">
+            <div class="rank-flag">
+                <span class="other-country-rank">{{{rank}}}</span>
+                <span class="flag flag-ioc-{{lowerCaseAbbreviation}} flag-medium flag-margin"></span>
+            </div>
+            <div class="other-country-details">
+                <div class="other-country-name">
+                    {{preferableName}}
+                </div>
+                <span class="other-country-medals">
+                    <div class="medal-pair">
+                    <span class="medal-block medal-block--gold medal-block--small"></span>
+                    {{goldMedals.total}}
+                    </div>
+                    <div class="medal-pair">
+                    <span class="medal-block medal-block--silver medal-block--small"></span>
+                    {{silverMedals.total}}
+                    </div>
+                    <div class="medal-pair">
+                    <span class="medal-block medal-block--bronze medal-block--small"></span>
+                    {{bronzeMedals.total}}
+                    </div>
+                    <div class="medal-pair medal-pair--all">
+                    <div class="medal-stack">
+                        <span class="medal-block medal-block--gold medal-block--small"></span>
+                        <span class="medal-block medal-block--silver medal-block--small"></span>
+                        <span class="medal-block medal-block--bronze medal-block--small"></span>
+                    </div>
+                    {{allMedals.total}}
+                    </div>
+                </span>
+            </div>
+        </div>
+        {{/topCountries}}
+    </div> -->
+    <button class="expand-leaderboard">
+        <img src="<%= path %>/assets/plus.svg" />
+        Full Leaderboard
+    </button>
+    <div class="other-country-block hidden {{olympicCountry.abbreviation}}">
+        {{#otherCountries}}
+            <div class="other-country">
+                <div class="rank-flag">
+                    <span class="other-country-rank">{{{rank}}}</span>
+                    <span class="flag flag-ioc-{{lowerCaseAbbreviation}} flag-medium flag-margin"></span>
+                </div>
+                <div class="other-country-details">
+                    <div class="other-country-name">
+                        {{preferableName}}
+                    </div>
+                    <span class="other-country-medals">
+                        <div class="medal-pair">
+                            <span class="medal-block medal-block--gold medal-block--small"></span>
+                            {{goldMedals.total}}
+                        </div>
+                        <div class="medal-pair">
+                            <span class="medal-block medal-block--silver medal-block--small"></span>
+                            {{silverMedals.total}}
+                        </div>
+                        <div class="medal-pair">
+                            <span class="medal-block medal-block--bronze medal-block--small"></span>
+                            {{bronzeMedals.total}}
+                        </div>
+                        <div class="medal-pair medal-pair--all">
+                    <div class="medal-stack">
+                        <span class="medal-block medal-block--gold medal-block--small"></span>
+                        <span class="medal-block medal-block--silver medal-block--small"></span>
+                        <span class="medal-block medal-block--bronze medal-block--small"></span>
+                    </div>
+                    {{allMedals.total}}
+                    </div>
+                    </span>
+                </div>
+            </div>
+        {{/otherCountries}}
+    </div>
+</div>
+
+<div class="interactive-ad-banner block">
+    <div class="ad-wrapper--desktop hide-until-tablet">
+        <div id="dfp-ad--inline0"
+             class="js-ad-slot ad-slot ad-slot--banner-ad ad-slot--banner-ad-desktop"
+             data-link-name="ad slot banner"
+             data-name="banner"
+             data-tablet="1,1|2,2|728,90"
+             data-desktop="1,1|2,2|88,70|728,90|940,230|900,250"></div>
+    </div>
+
+    <div class="ad-wrapper--mobile mobile-only">
+        <div id="dfp-ad--inline0Mobile"
+             class="js-ad-slot ad-slot ad-slot--inline ad-slot--inline0"
+             data-link-name="ad slot inline0Mobile"
+             data-name="inline0Mobile"
+             data-mobile="1,1|2,2|300,250|fluid"></div>
+    </div>
+</div>
+
+{{#medalsComingThrough}}
+<div class="breaker"></div>
+<div class="breaker"></div>
+<div class="breaker"></div>
+<div class="breaker"></div>
+<div class="block medals-by-sport" data-title="Medals by sport">
+    <div class="spacer"></div>
+    {{#medalsByDiscipline}}
+    <div class="row row--header row--header--closed row-with-border">
+        <span class="discipline-header"><img src="<%= path %>/assets/sports/{{disciplineAbbreviation}}.svg" alt="" />{{key}}</span>
+        <button class="item-button item-button--expand">
+            <img src="<%= path %>/assets/plus-black.svg" />
+            <div></div>
+        </button>
+    </div>
+    <div class="sports-category sports-category--hide">
+        <div class="medals-tab">
+            {{#values}}
+            <div class="row row-with-border">
+                <!-- {{value.country}} -->
+                <div class="column column--discipline">{{key}}</div>
+                <div class="column column--gold">
+                    {{#value.gold}}
+                    <div class="column__athlete">
+                        <span class="medal-block medal-block--gold medal-block--small no-margin"></span>
+                        <div class="athlete-country">
+                            <span class="flag flag-ioc-{{lowerCaseAbbreviation}} flag-small flag-discipline"></span>
+                            <span class="winner-abbreviation">{{abbreviation}}</span>
+                        </div>
+                        <div class="athlete-name">
+                            <span>{{firstName}}</span>
+                            <span class="name-padding"></span>
+                            <span>{{lastName}}</span>
+                        </div>
+                    </div>
+                    {{/value.gold}}
+                </div>
+                <div class="column column--silver">
+                    {{#value.silver}}
+                    <div class="column__athlete">
+                        <span class="medal-block medal-block--silver medal-block--small no-margin"></span>
+                        <div class="athlete-country">
+                            <span class="flag flag-ioc-{{lowerCaseAbbreviation}} flag-small flag-discipline"></span>
+                            <span class="winner-abbreviation">{{abbreviation}}</span>
+                        </div>
+                        <div class="athlete-name">
+                            <span>{{firstName}}</span>
+                            <span class="name-padding"></span>
+                            <span>{{lastName}}</span>
+                        </div>
+                    </div>
+                    {{/value.silver}}
+                </div>
+                <div class="column column--bronze">
+                    {{#value.bronze}}
+                    <div class="column__athlete">
+                        <span class="medal-block medal-block--bronze medal-block--small no-margin"></span>
+                        <div class="athlete-country">
+                            <span class="flag flag-ioc-{{lowerCaseAbbreviation}} flag-small flag-discipline"></span>
+                            <span class="winner-abbreviation">{{abbreviation}}</span>
+                        </div>
+                        <div class="athlete-name">
+                            <span>{{firstName}}</span>
+                            <span class="name-padding"></span>
+                            <span>{{lastName}}</span>
+                        </div>
+                    </div>
+                    {{/value.bronze}}
+                </div>
+            </div>
+            {{/values}}
+        </div>
+        <div class="sport-image">
+            <img src="{{url}}" id="{{key}}" alt="" />
+            <div class="caption-wrapper">
+                <strong><span class="img-athlete">{{captionLineOne}}</span></strong><br/>
+                <span class="img-athlete">{{captionLineTwo}}</span>
+            </div>
+        </div>
+    </div>
+    {{/medalsByDiscipline}}
+    {{^medalsByDiscipline}}
+        <div class="no-medals">No medals have been awarded yet</div>
+    {{/medalsByDiscipline}}
+</div>
+{{/medalsComingThrough}}
+<div class="breaker"></div>
+<div class="breaker"></div>
+<div class="breaker"></div>
+<div class="breaker"></div>
+<!-- <div class="block" data-title="Who's up? Who's down?">
+    <div class="countries-performance">
+        {{#countriesByPeformance}}
+            <div class="performer">
+                <div class="performance-header">
+                    <img class="performance-arrow" src="<%= path %>/assets/{{arrow}}Arrow.png" alt="" />
+                    <span>{{key}}</span>
+                </div>
+                <p>{{phrase}}</p>
+            </div>
+        {{/countriesByPeformance}}
+    </div>
+</div> -->
+
+
+
+<div class='block pye-stream-block' data-title='Historic medals'> 
+
+    <div class="spacer"></div>
+
+
+    <div class='pye-swipe-arrow'></div>
+
+
+    <figure class="element element-interactive interactive pye-stream" data-interactive="https://interactive.guim.co.uk/embed/iframe-wrapper/0.1/boot.js" data-canonical-url="
+    https://interactive.guim.co.uk/uploader/embed/2018/02/archive2-zip/giv-3902wgGTGa2pRA6b" data-alt="New graphic">
+    <a href="https://interactive.guim.co.uk/uploader/embed/2018/02/archive2-zip/giv-3902wgGTGa2pRA6b" data-link-name="in body link" class="u-underline"></a>
+    </figure>
+
+</div>
+
+<div class="breaker"></div>
+<div class="breaker"></div>
+<div class="breaker"></div>
+<div class="breaker"></div>
+
+
+
+
+<div class='block pye-info-block' data-title="About the Games">
+
+    <div class='spacer'></div>
+    
+    <p>The torch <a href="https://www.theguardian.com/sport/gallery/2018/feb/09/winter-olympics-2018-opening-ceremony-in-pictures">has been lit</a>, North and South Korea have marched as one and the 2018 Winter Olympics are now under way. Taking place in the South Korean town of Pyeongchang, just <a href="https://www.theguardian.com/sport/2018/feb/07/winter-olympics-bring-peace-to-korean-peninsula-for-now">80km from the border with North Korea</a>, the Games will run until 25 February.</p>
+
+
+    <p>Aside from headlines about <a href="https://www.theguardian.com/sport/2018/feb/09/russians-last-minute-winter-olympics-appeal-rejected">doping</a>, <a href="https://www.theguardian.com/sport/2018/feb/08/iran-furious-as-athletes-miss-out-on-winter-olympics-samsung-smartphones">smartphones</a> and <a href="https://www.theguardian.com/world/2018/feb/08/norway-olympics-team-orders-15000-eggs-by-mistake-south-korea">eggs</a>, fans from <a href="https://www.theguardian.com/sport/2018/feb/07/winter-olympics-2018-pyeongchang-fans">around the world</a> will be keeping a close eye on their star athletes’ medal chances.</p>
+
+
+    <p>Team GB are aiming to bring between five and ten medals home, which would make it their most successful Winter Games ever. Hopes are particularly high for Elise Christie, who has three chances in short-track speed skating, and Lizzy Yarnold and Laura Deas in the skeleton. The US will be watching 18-year-old prodigy Nathan Chen in the men’s figure skating, and veteran gold-medallist Lindsey Vonn, who could be skiing at the Games for the last time. Norway and Germany are expected to be jostling for top position on the leaderboard at this year’s event: German skier Laura Dahlmeier is expected to win six gold medals alone.<p/>
+
+
+    <p>All of the athletes will have to brave the coldest temperatures the Winter Games have seen <a href="https://www.theguardian.com/sport/2018/feb/09/pyeongchang-winter-olympics-set-to-be-the-coldest-for-20-years">in more than 20 years</a>, but hopes are still high among some commentators that the Games will go some way to <a href="https://www.theguardian.com/sport/2018/feb/09/will-joint-ice-hockey-team-winter-olympics-warm-up-frosty-korea-relations">warming up relations</a> between North and South Korea.</p>
+    
+<div class="image-credits">Picture credits: Getty images, AFP, EPA and PA.</div>
+</div>
+
+<div class="breaker"></div>
+<div class="block schedule-block" data-title="More Olympics"></div>
+<div class="more-olympics">
+    <a href="https://www.theguardian.com/sport/ng-interactive/2018/feb/08/winter-olympics-2018-full-schedule" target="_blank">
+        <img class="schedule-desktop" src="<%= path %>/assets/wo-event-link-desktop.svg" alt="">
+        <img class="schedule-mobile" src="<%= path %>/assets/wo-event-link-mobile.svg" alt="">
+    </a>
+</div>

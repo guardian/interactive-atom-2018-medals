@@ -1,0 +1,10 @@
+node_modules/
+bower_components/
+.build/
+.local/
+yarn.lock
+.DS_Store
+*.log
+src/assets/data/
+snap_medals.json
+schedule.json

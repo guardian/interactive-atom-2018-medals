@@ -1,0 +1,1123 @@
+@import "mq";
+@import "fonts";
+@import "header";
+@import "flag-css";
+// Uncomment for embeds
+//@import "embed";
+// Uncomment for full screen (including immersive article main media)
+//@import "fullscreen";
+//Colours
+$gold: #FADD04;
+$silver: #dcdcdc;
+$bronze: #E78B40;
+$highlight: #FFE500;
+//Main
+.element-atom,
+.interactive-atom {
+    margin: 0 !important;
+    overflow-x: hidden;
+}
+.top-breaker {
+
+    @include mq(mobile) {
+        margin-top: 20px;
+    }
+ 	@include mq(leftCol) {
+		 margin-top: 96px;
+     }
+    
+}
+
+.pye-stream {
+
+    & iframe {
+        pointer-events: none;
+    }
+
+    margin-left: 0 !important;
+
+    @include mq($until: desktop) {
+
+        width: 100%;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+
+        & iframe {
+            min-width: 860px !important;
+        }
+        
+    }
+
+    @include mq($until: nohover) {
+
+    }
+}
+
+.pye-stream-block {
+
+    @include mq($from: tablet, $until: leftCol) {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+
+@keyframes test {
+    from {
+        margin-left: 20px;
+    }
+    to {
+        margin-left: 0px;
+    }
+}
+
+.pye-swipe-arrow {
+
+    opacity: 1;
+
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    z-index: 2000;
+
+    top: 100px;
+    left: 10px;
+
+    animation: test 1s linear 0s infinite alternate;
+
+    border-radius: 50%;
+    transform: rotate(180deg);
+    display: inline-block;
+    content: '';
+    background-image: url(https://uploads.guim.co.uk/2018/02/06/arrow.svg);
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+
+    @include mq($from: nohover) {
+
+        display: none;
+    }
+
+    transition: opacity 0.2s linear;
+
+    &.pye-swipe-arrow--hidden {
+        opacity: 0;
+    }
+}
+
+.breaker {
+    border-top: 1px dotted #7BD7FF;
+    margin-bottom: 3px;
+    width: 200vw;
+    margin-left: -100%;
+
+    &--short {
+        @include mq(mobile) {
+            display: none;
+        }
+
+        @include mq(leftCol) {
+            display: block;
+            width: 140px;
+            margin-left: 0px;
+        }
+
+        @include mq(wide) {
+            width: 220px;
+        }
+    }
+}
+
+.interactive-ad-banner:before {
+    display: none !important;
+}
+
+.interactive-ad-banner {
+    padding-top: 10px !important;
+}
+
+.ad-slot--inline, .ad-slot--container-inline {
+    @include mq($until: tablet) {
+        margin-left: 0 !important;
+    }
+}
+
+.page-wrapper {
+    max-width: 1300px;
+    background-color: #fff;
+    margin: auto;
+    position: relative;
+    &::before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 0;
+        position: absolute;
+        top: 0;
+        @include mq(leftCol) {
+            left: 160px;
+            border-right: 1px solid #7BD7FF ;
+        }
+        @include mq(wide) {
+            left: 240px;
+        }
+    }
+}
+
+.block {
+    //width: 1300px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+    h1 {
+        @include fs-headline(8);
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 54px;
+    }
+
+    &::before {
+        content: attr(data-title);
+        display: inline-block;
+        left: 0px;
+        top: -8px;
+        @include fs-headline(4);
+        font-weight: 700;
+        color: #000;
+        background-color: #ffe500;
+        padding: 3px 5px 3px
+    }
+    @include mq(mobile) {
+        position: relative;
+        z-index: 10;
+        padding-left: 20px;
+        padding-top: 45px;
+        margin-top: -8px;
+    }
+    @include mq(tablet) {
+        padding-right: 40px;
+    }
+    @include mq(desktop) {
+        padding-right: 40px;
+    }
+    @include mq(leftCol) {
+        padding-top: 0;
+        padding-left: 170px;
+        padding-right: 20px;
+    }
+    @include mq(wide) {
+        padding-left: 250px;
+        padding-right: 20px;
+    }
+
+    &::before {
+        content: attr(data-title);
+        @include fs-headline(4);
+        font-weight: 700;
+        color: #121212;;
+        background-color: #ffe500;
+        padding: 3px 5px 0px;
+        z-index: 3;
+        
+        @include mq(mobile) {
+            font-size: 32px;
+            line-height: 34px;
+            padding-bottom: 4px;
+            padding-top: 4px;
+            left: 0px;
+            top: -8px;
+            max-width: 280px;
+
+            display: inline-block;
+            position: absolute;
+        }
+
+        @include mq(tablet) {
+           max-width: 600px 
+        }
+
+        @include mq(leftCol) {
+            font-size: 24px;
+            line-height: 24px;
+            width: 151px;
+            top: -8px;
+            left: -1px;
+        }
+
+        @include mq(wide) {
+            left: 20px;
+            width: auto;
+            display: inline-block;
+            max-width: 180px;
+            padding-bottom: 8px;
+        }
+    }
+}
+
+.top-country-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @include mq(tablet) {
+        padding-bottom: 3px;
+    }
+}
+
+.second-tier-mobile {
+    @include mq(mobile) {
+        display: block;
+        margin-top: -10px;
+        margin-bottom: -20px;
+    }
+
+    @include mq(tablet) {
+        display: none;
+    }
+}
+
+.second-tier-desktop {
+    @include mq(mobile) {
+        display: none;
+    }
+    
+    @include mq(tablet) {
+        display: block;
+    }
+}
+
+.leaderboard-top {
+    display: flex;
+    flex-wrap: wrap;
+    @include mq(mobile) {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    @include mq(tablet) {
+        flex-direction: row;
+        width: 700px;
+        justify-content: space-between;
+        margin-bottom: -40px;
+    }
+    @include mq(desktop) {
+        width: calc(100vw - 20px);
+        justify-content: flex-start;
+    }
+    @include mq(leftCol) {
+        padding-top: 20px;
+        width: calc(90vw);
+        justify-content: flex-start;
+    }
+    
+    @include mq(wide) {
+        justify-content: space-around;
+        width: 100%;
+    }
+}
+
+.country-block {
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+
+    @include mq(mobile) {
+        width: 90vw;
+        padding-right: 10px;
+        margin-bottom: 25px;
+    }
+    
+    @include mq(tablet) {
+        width: 300px;
+        margin-bottom: 45px;
+    }
+
+    @include mq(desktop) {
+        padding-right: 40px;
+    }
+
+    @include mq(leftCol) {
+        padding-right: 40px;
+    }
+}
+
+.sports-category {
+    img {
+        background: #00b2ff;
+        height: 300px;
+        width: 300px;
+        border-radius: 50%;
+        margin-left: 20px;
+        margin-top: -40px;
+        margin-bottom: -27px;
+    }
+    &--hide {
+        display: none !important;
+    }
+    &--show {
+        display: flex;
+    }
+}
+
+.sport-image {
+    @include mq(mobile) {
+        display: none;
+    }
+
+    @include mq(desktop) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+}
+
+.img-athlete {
+    @include fs-textSans(3);
+    margin-left: 20px;
+    max-width: 120px;
+    line-height: 14px;
+    background: $highlight;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.country-header {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    @include mq(mobile) {
+        @include fs-headline(6);
+        font-weight: 700;
+    }
+    @include mq(tablet) {
+        @include fs-headline(8);
+        font-weight: 700;
+    }
+}
+
+.country-header-wrapper {
+    display: flex;
+}
+
+.medal-total-small {
+    padding-right: 9px;
+}
+
+.medal-block {
+    @include mq(mobile) {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        margin-right: 1px;
+        display: inline-block;
+        margin-right: 1px;
+    }
+    @include mq(tablet) {
+        width: 20px;
+        height: 20px;
+    }
+    &--small {
+
+        @include mq(mobile) {
+            width: 12px;
+            height: 12px;
+            margin: 0 1px 0 10px;
+        }
+
+        @include mq(tablet) {
+            width: 12px;
+            height: 12px;
+        }
+    }
+    &--gold {
+        background: $gold;
+    }
+    &--silver {
+        background: $silver;
+    }
+    &--bronze {
+        background: $bronze;
+    }
+}
+
+.no-margin {
+    @include mq(mobile) {
+        margin-left: 0 !important;
+        margin-top: 2px;
+    }
+    @include mq(tablet) {
+        margin-top: 0;
+    }
+}
+
+.medals {
+    margin-top: 10px;
+}
+
+.top-medals {
+    @include mq(mobile) {
+        width: 90vw;
+    }
+
+    @include mq(tablet) {
+        width: 290px;
+    }
+}
+
+.medals-total {
+    @include mq(mobile) {
+        @include fs-textSans(1);
+        margin-left: 4px;
+        line-height: 12px;
+        font-weight: 700;
+        vertical-align: text-top
+    }
+    @include mq(tablet) {
+        line-height: 16px;
+        vertical-align: super;
+    }
+}
+
+.pye-rank-dash {
+    @include fs-headline(4);
+    font-size: 116px;
+}
+
+.number {
+    padding-right: 5px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    @include mq(mobile) {
+        height: 55px;
+    }
+    @include mq(tablet) {
+        height: 68px;
+    }
+}
+
+
+.pye-info-block p {
+
+    width: 90vw;
+    max-width: 620px;
+}
+
+.expand-leaderboard {
+    @include mq(mobile) {
+        display: flex;
+        margin-top: 20px;
+        align-items: center;
+        @include fs-textSans(1);
+        height: 42px;
+        color: #FFFFFF;
+        background: #121212;
+        border-radius: 100px;
+        font-weight: 700;
+        letter-spacing: 0;
+        vertical-align: middle;
+        padding: 0 20px 0 10px;
+        border: none;
+    }
+
+    @include mq(tablet) {
+        margin-top: 20px;
+    }
+
+    @include mq(wide) {
+        margin-left: 10px;
+    }
+
+}
+
+.expand-leaderboard img {
+    vertical-align: middle;
+    display: inline;
+    fill: #fff;
+    padding-right: 5px;
+}
+
+.row-with-border {
+    border-top: 1px solid #7BD7FF;
+}
+
+.row {
+    @include fs-textSans(1);
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0 8px 0;
+    margin-top: -1px;
+
+    @include mq(mobile) {
+        @include fs-textSans(3);
+        flex-direction: column;
+    }
+
+    @include mq(tablet) {
+        flex-direction: row;
+    }
+    
+    @include mq(tablet) {
+        @include fs-textSans(1);
+    }
+    
+    &--header {
+        cursor: pointer;
+        align-items: center;
+        padding-bottom: 14px;
+
+        @include mq(mobile) {
+            width: 93vw;
+            flex-direction: row;
+        }
+
+        @include mq(desktop) {
+            width: 97vw;
+        }
+
+        @include mq(leftCol) {
+            width: 84vw;
+        }
+
+        @include mq(wide) {
+            width: auto;
+        }
+
+        &--closed {
+            padding-bottom: 14px;
+        }
+        &--open {
+
+            @include mq(mobile) {
+                // padding-bottom: 14px;
+                width: 93vw;
+            }
+
+            @include mq(desktop) {
+                width: 97vw;
+            }
+
+            @include mq(leftCol) {
+                width: 84vw;
+            }
+
+            @include mq(wide) {
+                width: auto;
+            }
+        }
+    }
+}
+
+.discipline-header {
+    @include fs-headline(4);
+    font-weight: 700;
+
+    img {
+        display: inline;
+        height: 32px;
+        width: 32px;
+        flex-shrink: 0;
+        flex-grow: 0;
+        vertical-align: text-bottom;
+        margin-right: 5px;
+    }
+}
+
+.item-button {
+    // border: 1px solid #979797;
+
+    display: flex;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+    -webkit-tap-highlight-color: transparent;
+    &--expand {
+        background: #fff;
+        >img {
+            display: block;
+            flex-grow: 0;
+            flex-shrink: 0;
+            border: 1px solid #979797;
+            border-radius: 50%;
+            padding: 6px;
+
+        }
+        >div {
+            display: none !important;
+        }
+    }
+    &--collapse {
+        background: #121212;
+        border-color: #121212;
+        >img {
+            display: none !important;
+        }
+        >div {
+            display: block;
+            background: #FFFFFF;
+            height: 2px;
+            margin: 0 auto;
+            width: 20px;
+        }
+    }
+}
+
+.athlete-name {
+    @include mq(mobile) {
+        display: flex;
+        flex-direction: row;
+        @include fs-textSans(3);
+        margin-top: 0;
+    }
+    
+    @include mq(tablet) {
+        flex-direction: column;
+        @include fs-textSans(1);
+        margin-top: -2px;
+    }
+
+}
+
+.name-padding {
+    @include mq(mobile) {
+        padding: 2px;
+    }
+
+    @include mq(tablet) {
+        display: none;
+    }
+}
+
+.athlete-country {
+    margin-right: 10px;
+    margin-left: 5px;
+
+    @include mq(mobile) {
+        width: 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    @include mq(tablet) {
+        display: inline;
+        width: 30px;
+    }
+}
+
+.winner-abbreviation {
+    @include mq(mobile) {
+        @include fs-textSans(3);
+        margin-top: 0;
+        margin-left: 4px;
+    }
+
+    @include mq(tablet) {
+        @include fs-textSans(1);
+        margin-left: 0;
+        margin-top: -2px;
+    }
+}
+
+.medals-tab {
+    @include mq(mobile) {
+        width: 95vw;
+    }
+
+    @include mq(desktop) {
+        width: auto;
+    }
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+
+    @include mq(mobile) {
+        width: auto;
+    }
+
+    @include mq(tablet) {
+        width: 180px;
+    }
+
+    &--discipline {
+        @include mq(mobile) {
+            font-weight: 700;
+            width: auto;
+            padding-bottom: 10px;
+        }
+
+        @include mq(tablet) {
+            width: 150px;
+            padding-right: 5px;
+        }
+
+        @include mq(desktop) {
+            width: 100px;
+            padding-right: 20px;
+        }
+    }
+    &__athlete {
+        margin-top: 5px;
+        margin-bottom: 4px;
+        display: flex;
+        align-items: start;
+        flex-grow: 1;
+    }
+}
+
+.rank-flag {
+    @include mq(mobile) {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    @include mq(tablet) {
+        flex-direction: row;
+    }
+
+}
+
+.flag-margin {
+    @include mq(mobile) {
+        margin-left: -10px;
+    }
+    @include mq(tablet) {
+        margin-left: 0;
+    }
+}
+
+.other-country {
+    display: flex;
+    align-items: baseline;
+}
+
+.other-country-name {
+    @include fs-headline(5);
+    font-weight: 700;
+    padding-right: 40px;
+    // margin-top: 9px;
+
+    @include mq(mobile) {
+        padding-left: 10px;
+        width: 80vw;
+        // margin-bottom: 5px;
+        // padding-bottom:5px;
+    }
+
+     @include mq(tablet) {
+         padding-left: 0;
+         width: 250px;
+     }
+
+     @include mq(desktop) {
+         width: 180px;
+     }
+
+     @include mq(leftCol) {
+         width: 200px;
+     }
+     @include mq(wide) {
+         width: 195px;
+     }
+}
+
+.other-country-medals {
+    @include mq(mobile) {
+        display: flex;
+        flex-direction: row;
+        padding-top: 3px;
+    }
+    @include mq(tablet) {
+        padding-top: 0;
+    }
+}
+
+.medal-pair {
+    min-width: 40px;
+}
+
+.other-country-rank {
+    @include fs-headline(5);
+    font-weight: 700;
+    width: 38px;
+}
+
+.other-country-details {
+    @include mq(mobile) {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+        align-items: flex-start;
+        @include fs-textSans(1);
+        font-weight: 700;
+        margin-bottom: 20px;
+        margin-left: -20px;
+        
+    }
+    @include mq(tablet) {
+        flex-direction: row;
+        align-items: center;
+        margin-left: 0;
+    }
+}
+
+.other-country-block {
+    margin-top: 24px;
+
+    @include mq(wide) {
+        margin-left: 10px;
+    }
+}
+
+.countries-performance {
+    @include mq(mobile) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    @include mq(tablet) {
+        margin-top: 0;
+    }
+
+    @include mq(desktop) {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    @include mq(leftCol) {
+        padding-top: 22px;
+        padding-right: 10px;
+    }
+
+    @include mq(wide) {
+        justify-content: space-between;
+    }
+    
+    p {
+        @include fs-bodyCopy(2);
+        line-height: 22px;
+        margin-top: 4px;
+    }
+}
+
+.performer {
+    @include mq(mobile) {
+        width: 90vw;
+    }
+
+    @include mq(tablet) {
+        width: 90%;
+    }
+
+    @include mq(desktop) {
+        width: 450px;
+        padding-right: 40px;
+    }
+}
+
+.performance-arrow {
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: 11px;
+    width: 19px;
+    margin-right: 6px;
+}
+
+.performance-header {
+    @include fs-headline(4);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+
+    & >span {
+        margin-right: 10px;
+    }
+}
+
+.more-olympics {
+    @include mq(mobile) {
+        background-color: #00B2FF;
+        height: 250px;
+        margin-bottom: 40px;
+        width: 100%;
+        margin-top: -20px;
+    }
+
+    @include mq(tablet) {
+        height: 170px;
+        margin-top: -43px;
+        width: 2000px;
+        margin-left: -800px;
+        margin-top: -93px;
+    }
+
+    @include mq(leftCol) {
+        position: relative;
+        z-index: 9;
+    }
+
+    @include mq(desktop) {
+        height: 190px;
+        width: 200vw;
+        margin-bottom: 0px;
+        margin-left: -600px;
+    }
+
+    @include mq(leftCol) {
+        margin-top: -48px;
+    }
+
+    @include mq(wide) {
+        margin-left: -1000px;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+
+.schedule-desktop {
+    @include mq(mobile) {
+        display: none;
+    }
+
+    @include mq(tablet) {
+        display: block;
+        height: 110px;
+        margin-left: 820px;
+        padding-top: 42px;
+    }
+
+    @include mq(desktop) {
+        cursor: pointer;
+        height: 126px;
+        margin-left: 650px;
+        padding-top: 42px;
+    }
+
+    @include mq(leftCol) {
+        margin-left: 800px;
+        padding-top: 20px;
+    }
+
+    @include mq(wide) {
+        margin-left: 1300px;
+    }
+}
+
+.schedule-mobile {
+
+    @include mq(mobile) {
+        display: block;
+        margin-left: 0px;
+        margin-top: -5px;
+        height: 200px;
+
+    }
+
+    @include mq(mobileMedium) {
+        height: 220px;
+    }
+
+    @include mq(tablet) {
+        display: none;
+    }
+}
+
+.schedule-block {
+    @include mq(mobile) {
+        display: none;
+    }
+
+    @include mq(tablet) {
+        display: block;
+        margin-top: -13px;
+    }
+}
+
+.spacer {
+    @include mq(leftCol) {
+        padding-bottom: 10px;
+    }
+}
+
+
+.no-medals {
+    @include fs-bodyCopy(2);
+    margin-top: 1px;
+}
+
+.medals-by-sport {
+    min-height: 100px;
+}
+
+//enable footer
+.l-footer {
+    display: block !important;
+}
+
+.caption-wrapper {
+    max-width: 240px;
+    line-height: 0;
+    margin-left: 20px;
+}
+
+.ghost-h1 {
+    position: fixed;
+    top: 3000px;
+    left: -2000px;
+}
+
+.big-total {
+    @include mq(mobile) {
+        height: 15px;
+        display: inline;
+    }
+    @include mq(tablet) {
+        height: 19px;
+    }
+}
+
+.medal-stack {
+    width: 100px;
+    display: inline;
+    white-space: nowrap;
+    margin-left: 8px;
+
+    .medal-block {
+        display: inline-block;
+        margin-left: 0;
+        position: relative;
+        // z-index: 
+
+        &.medal-block--gold {
+            z-index: 3;
+        }
+
+        &.medal-block--silver {
+            margin-left: -10px;
+            z-index: 2;
+        }
+
+        &.medal-block--bronze {
+            margin-left: -10px;
+        }
+    }
+}
+
+.image-credits {
+    @include mq(mobile) {
+        @include fs-textSans(1);
+        color: grey;
+        margin-top: 20px;
+        padding-bottom: 10px;
+    }
+}

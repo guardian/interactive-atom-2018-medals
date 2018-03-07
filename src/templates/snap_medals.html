@@ -1,0 +1,1305 @@
+<style>
+.pye-item {
+    position: relative;
+    padding-bottom: 0
+    margin-bottom: 0;
+    border-bottom: 1px solid #cbefff;
+}
+
+.pye-item:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.pye-country {
+    float: left;
+    min-width: 100px;
+    width: 50%;
+    margin: 0;
+    line-height: 26px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 180px);
+}
+
+@media (max-width: 740px) {
+
+    .pye-country {
+        max-width: calc(100% - 160px);
+    }
+}
+
+.pye-rank {
+
+    position: absolute;
+    font-family: "Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+    font-size: 20px;
+    font-weight: 900;
+}
+    
+.pye-name {
+
+    padding-left: 49px;
+
+    font-family: "Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+    font-weight: 900;
+    font-size: 20px;
+    min-width: 100px;
+    max-width: 100%;
+}
+
+.pye-medals {
+    float: right;
+    margin: 0;
+    padding-bottom: 9px;
+    transform: translateY(1px);
+}
+
+.pye-flag {
+    min-width: 25px;
+    position: absolute;
+    left: 18px;
+    min-height: 15px;
+    top: 6px;
+    display: inline-block;
+    background-size: cover;
+}
+
+@media (max-width: 739px) {
+    .pye-flag {
+        min-width: 24px;
+        position: absolute;
+        left: 16px;
+        min-height: 13.33px;
+        display: inline-block;
+    }
+}
+
+.pye-num {
+    font-family: "Guardian Text Sans Web", sans-serif;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 700;
+    padding-right: 6px;
+    min-width: 16px;
+}
+
+.pye-num:last-of-type {
+    padding-right: 0;
+}
+
+@media (max-width: 739px) {
+
+    .pye-num {
+        padding-right: 0px;
+    }
+
+    .pye-medals {
+        float: right;
+    }
+}
+
+
+.pye-medal {
+
+    transform: translateY(2px);
+    position: relative;
+    box-sizing: border-box;
+    min-width: 14px;
+    min-height: 14px;
+    display: inline-block;
+    background-color: #aaa;
+    border-radius: 2000000000px;
+}
+
+.pye-stack {
+}
+
+.pye-medal--stacked {
+    margin-left: -12px;
+}
+
+.pye-medal--stacked:first-of-type {
+    margin-left: 0;
+}
+
+.pye-gold {
+    background: #FADD04;
+    z-index: 2;
+}
+
+.pye-silver {
+    background: #dcdcdc;
+    z-index: 1;
+}
+
+.pye-bronze {
+    background: #E78B40;
+    z-index: 0;
+}
+
+.pye-link-text {
+    font-family: "Guardian Text Sans Web";
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 700;
+    color: #2b98d8;
+    display: inline-block;
+    transform: translateY(-4px);
+}
+
+.pye-arrow {
+
+    height: 20px;
+    width: 20px;
+    margin-left: 3px;
+    bottom: -3px;
+    position: relative;
+    border-radius: 50%;
+    background-color: #FFE500;
+    display: inline-block;
+    content: '';
+    background-image: url(https://uploads.guim.co.uk/2018/02/06/arrow.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+
+}
+
+@media (max-width: 739px) {
+    .pye-arrow {
+        bottom: -2px;
+    }
+}
+
+.pye-wrapper {
+    width: 100%;
+    line-height: 26px;
+    color: initial;
+    text-decoration: none;
+}
+
+.pye-wrapper:hover {
+    text-decoration: none;
+}
+
+.pye-snap {
+
+    width: 100%;
+    padding-top: 0;
+    box-sizing: border-box;
+    max-height: 132px;
+}
+
+@media(max-width: 979px) {
+
+    .pye-rank {
+        font-size: 16px;
+    }
+    .pye-name {
+        font-size: 16px;
+        padding-left: 45px;
+    }
+
+    .pye-link-text {
+        font-size: 13px;
+        line-height: 17px;
+    }
+}
+
+.flag-ioc-aru {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/abw.png);
+}
+
+.flag-ioc-afg {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/afg.png);
+}
+
+.flag-ioc-ang {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ago.png);
+}
+
+.flag-ioc-aia {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/aia.png);
+}
+
+.flag-ioc- {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ala.png);
+}
+
+.flag-ioc-alb {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/alb.png);
+}
+
+.flag-ioc-and {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/and.png);
+}
+
+.flag-ioc-uae {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/are.png);
+}
+
+.flag-ioc-arg {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/arg.png);
+}
+
+.flag-ioc-arm {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/arm.png);
+}
+
+.flag-ioc-asa {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/asm.png);
+}
+
+.flag-ioc- {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ata.png);
+}
+
+.flag-atf, .flag-tf, .flag-260 {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/atf.png);
+}
+
+.flag-ioc-ant {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/atg.png);
+}
+
+.flag-ioc-aus {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/aus.png);
+}
+
+.flag-ioc-aut {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/aut.png);
+}
+
+.flag-ioc-aze {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/aze.png);
+}
+
+.flag-ioc-bdi {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/bdi.png);
+}
+
+.flag-ioc-bel {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/bel.png);
+}
+
+.flag-ioc-ben {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ben.png);
+}
+
+.flag-ioc-aho {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/bes.png);
+}
+
+.flag-ioc-bur {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/bfa.png);
+}
+
+.flag-ioc-ban {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/bgd.png);
+}
+
+.flag-ioc-bul {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/bul.png);
+}
+
+.flag-ioc-brn {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/bhr.png);
+}
+
+.flag-ioc-bah {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/bhs.png);
+}
+
+.flag-ioc-bih {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/bih.png);
+}
+
+.flag-blm, .flag-bl, .flag-652 {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/blm.png);
+}
+
+.flag-ioc-blr {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/blr.png);
+}
+
+.flag-ioc-biz {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/blz.png);
+}
+
+.flag-ioc-ber {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ber.png);
+}
+
+.flag-ioc-bol {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/bol.png);
+}
+
+.flag-ioc-bra {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/bra.png);
+}
+
+.flag-ioc-bar {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/brb.png);
+}
+
+.flag-ioc-bru {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/brn.png);
+}
+
+.flag-ioc-bhu {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/btn.png);
+}
+
+.flag-bvt, .flag-bv, .flag-74 {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/bvt.png);
+}
+
+.flag-ioc-bot {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/bwa.png);
+}
+
+.flag-ioc-caf {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/caf.png);
+}
+
+.flag-ioc-can {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/can.png);
+}
+
+.flag-ioc- {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cck.png);
+}
+
+.flag-ioc-sui {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/che.png);
+}
+
+.flag-ioc-swi {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/che.png);
+}
+
+.flag-ioc-swi {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/swi.png);
+}
+
+.flag-ioc-sui {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/sui.png);
+}
+
+.flag-ioc-chi {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/chi.png);
+}
+
+.flag-ioc-chn {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/chn.png);
+}
+
+.flag-ioc-civ {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/civ.png);
+}
+
+.flag-ioc-cmr {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cmr.png);
+}
+
+.flag-ioc-cod {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cod.png);
+}
+
+.flag-ioc-cgo {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cog.png);
+}
+
+.flag-ioc-cok {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cok.png);
+}
+
+.flag-ioc-col {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/col.png);
+}
+
+.flag-ioc-com {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/com.png);
+}
+
+.flag-ioc-cpv {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cpv.png);
+}
+
+.flag-ioc-crc {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cri.png);
+}
+
+.flag-ioc-cub {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cub.png);
+}
+
+.flag-cuw, .flag-cw, .flag-531 {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cuw.png);
+}
+
+.flag-ioc- {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cxr.png);
+}
+
+.flag-ioc-cay {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cym.png);
+}
+
+.flag-ioc-cyp {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cyp.png);
+}
+
+.flag-ioc-cze {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cze.png);
+}
+
+.flag-ioc-ger {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/deu.png);
+}
+
+.flag-ioc-ger {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ger.png);
+}
+
+.flag-ioc-dji {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/dji.png);
+}
+
+.flag-ioc-dma {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/dma.png);
+}
+
+.flag-ioc-den {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/den.png);
+}
+
+.flag-ioc-dom {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/dom.png);
+}
+
+.flag-ioc-alg {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/dza.png);
+}
+
+.flag-ioc-ecu {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ecu.png);
+}
+
+.flag-ioc-egy {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/egy.png);
+}
+
+.flag-ioc-eri {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/eri.png);
+}
+
+.flag-ioc- {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/esh.png);
+}
+
+.flag-ioc-esp {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/spa.png);
+}
+
+.flag-ioc-est {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/est.png);
+}
+
+.flag-ioc-eth {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/eth.png);
+}
+
+.flag-ioc-fin {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/fin.png);
+}
+
+.flag-ioc-fij {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/fji.png);
+}
+
+.flag-ioc-flk {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/flk.png);
+}
+
+.flag-ioc-fra {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/fra.png);
+}
+
+.flag-ioc-far {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/fro.png);
+}
+
+.flag-ioc-fsm {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/fsm.png);
+}
+
+.flag-ioc-gab {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/gab.png);
+}
+
+.flag-gbr, .flag-gb, .flag-826, .flag-ioc-gbr {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/gbr.png);
+}
+
+.flag-ioc-geo {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/geo.png);
+}
+
+.flag-ioc- {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ggy.png);
+}
+
+.flag-ioc-gha {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/gha.png);
+}
+
+.flag-ioc-gib {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/gib.png);
+}
+
+.flag-ioc-gui {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/gin.png);
+}
+
+.flag-ioc-gud {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/glp.png);
+}
+
+.flag-ioc-gam {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/gmb.png);
+}
+
+.flag-ioc-gbs {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/gnb.png);
+}
+
+.flag-ioc-geq {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/gnq.png);
+}
+
+.flag-ioc-gre {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/gre.png);
+}
+
+.flag-ioc-grn {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/grd.png);
+}
+
+.flag-ioc-grl {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/grl.png);
+}
+
+.flag-ioc-gua {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/gtm.png);
+}
+
+.flag-ioc-fgu {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/guf.png);
+}
+
+.flag-ioc-gum {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/gum.png);
+}
+
+.flag-ioc-guy {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/guy.png);
+}
+
+.flag-ioc-hkg {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/hkg.png);
+}
+
+.flag-hmd, .flag-hm, .flag-334 {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/hmd.png);
+}
+
+.flag-ioc-hon {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/hnd.png);
+}
+
+.flag-ioc-cro {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/cro.png);
+}
+
+.flag-ioc-hai {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/hti.png);
+}
+
+.flag-ioc-hun {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/hun.png);
+}
+
+.flag-ioc-ina {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/idn.png);
+}
+
+.flag-ioc- {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/imn.png);
+}
+
+.flag-ioc-ind {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ind.png);
+}
+
+.flag-iot, .flag-io, .flag-86 {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/iot.png);
+}
+
+.flag-ioc-irl {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/irl.png);
+}
+
+.flag-ioc-iri {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/iri.png);
+}
+
+.flag-ioc-irq {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/irq.png);
+}
+
+.flag-ioc-isl {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/isl.png);
+}
+
+.flag-ioc-isr {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/isr.png);
+}
+
+.flag-ioc-ita {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ita.png);
+}
+
+.flag-ioc-jam {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/jam.png);
+}
+
+.flag-ioc- {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/jey.png);
+}
+
+.flag-ioc-jor {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/jor.png);
+}
+
+.flag-ioc-jpn {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/jpn.png);
+}
+
+.flag-ioc-kaz {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/kaz.png);
+}
+
+.flag-ioc-ken {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ken.png);
+}
+
+.flag-ioc-kgz {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/kgz.png);
+}
+
+.flag-ioc-cam {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/khm.png);
+}
+
+.flag-ioc-kir {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/kir.png);
+}
+
+.flag-ioc-skn {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/kna.png);
+}
+
+.flag-ioc-kor {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/kor.png);
+}
+
+.flag-ioc-kuw {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/kwt.png);
+}
+
+.flag-ioc-lao {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/lao.png);
+}
+
+.flag-ioc-lbn {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/lib.png);
+}
+
+.flag-ioc-lbr {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/lbr.png);
+}
+
+.flag-ioc-lba {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/lby.png);
+}
+
+.flag-ioc-lca {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/lca.png);
+}
+
+.flag-ioc-lie {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/lie.png);
+}
+
+.flag-ioc-sri {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/lka.png);
+}
+
+.flag-ioc-les {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/lso.png);
+}
+
+.flag-ioc-ltu {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ltu.png);
+}
+
+.flag-ioc-lux {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/lux.png);
+}
+
+.flag-ioc-lat {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/lat.png);
+}
+
+.flag-ioc-mac {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mac.png);
+}
+
+.flag-maf, .flag-mf, .flag-663 {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/maf.png);
+}
+
+.flag-ioc-mar {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mar.png);
+}
+
+.flag-ioc-mon {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mnc.png);
+}
+
+.flag-ioc-mda {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mda.png);
+}
+
+.flag-ioc-mad {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mad.png);
+}
+
+.flag-ioc-mdv {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mdv.png);
+}
+
+.flag-ioc-mex {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mex.png);
+}
+
+.flag-ioc-msh {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mhl.png);
+}
+
+.flag-ioc-mkd {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mkd.png);
+}
+
+.flag-ioc-mli {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mli.png);
+}
+
+.flag-ioc-mlt {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mlt.png);
+}
+
+.flag-ioc-mya {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mmr.png);
+}
+
+.flag-ioc-mne {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mne.png);
+}
+
+.flag-ioc-mgl {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mng.png);
+}
+
+.flag-ioc-nma {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mnp.png);
+}
+
+.flag-ioc-moz {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/moz.png);
+}
+
+.flag-ioc-mtn {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mrt.png);
+}
+
+.flag-ioc-mnt {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/msr.png);
+}
+
+.flag-ioc-mrt {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mtq.png);
+}
+
+.flag-ioc-mri {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mus.png);
+}
+
+.flag-ioc-maw {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mwi.png);
+}
+
+.flag-ioc-mas {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/mas.png);
+}
+
+.flag-ioc-may {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/myt.png);
+}
+
+.flag-ioc-nam {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/nam.png);
+}
+
+.flag-ioc-ncd {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ncl.png);
+}
+
+.flag-ioc-nig {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ner.png);
+}
+
+.flag-ioc-nfi {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/nfk.png);
+}
+
+.flag-ioc-ngr {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ngr.png);
+}
+
+.flag-ioc-nca {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/nic.png);
+}
+
+.flag-ioc-niu {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/niu.png);
+}
+
+.flag-ioc-ned {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ned.png);
+}
+
+.flag-ioc-nor {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/nor.png);
+}
+
+.flag-ioc-nep {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/npl.png);
+}
+
+.flag-ioc-nru {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/nru.png);
+}
+
+.flag-ioc-nzl {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/nzl.png);
+}
+
+.flag-ioc-oma {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/omn.png);
+}
+
+.flag-ioc-pak {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/pak.png);
+}
+
+.flag-ioc-pan {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/pan.png);
+}
+
+.flag-ioc- {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/pcn.png);
+}
+
+.flag-ioc-per {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/per.png);
+}
+
+.flag-ioc-phi {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/phi.png);
+}
+
+.flag-ioc-plw {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/plw.png);
+}
+
+.flag-ioc-png {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/png.png);
+}
+
+.flag-ioc-pol {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/pol.png);
+}
+
+.flag-ioc-pur {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/pur.png);
+}
+
+.flag-ioc-prk {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/prk.png);
+}
+
+.flag-ioc-por {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/por.png);
+}
+
+.flag-ioc-par {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/pry.png);
+}
+
+.flag-ioc-ple {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/pse.png);
+}
+
+.flag-ioc-fpo {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/pyf.png);
+}
+
+.flag-ioc-qat {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/qat.png);
+}
+
+.flag-ioc-reu {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/reu.png);
+}
+
+.flag-ioc-rou {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/rou.png);
+}
+
+.flag-ioc-rus {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/rus.png);
+}
+
+.flag-ioc-rwa {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/rwa.png);
+}
+
+.flag-ioc-ksa {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/sau.png);
+}
+
+.flag-ioc-sud {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/sdn.png);
+}
+
+.flag-ioc-sen {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/sen.png);
+}
+
+.flag-ioc-sgp {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/sin.png);
+}
+
+.flag-sgs, .flag-gs, .flag-239 {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/sgs.png);
+}
+
+.flag-ioc-hel {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/shn.png);
+}
+
+.flag-sjm, .flag-sj, .flag-744 {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/sjm.png);
+}
+
+.flag-ioc-sol {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/slb.png);
+}
+
+.flag-ioc-sle {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/sle.png);
+}
+
+.flag-ioc-esa {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/slv.png);
+}
+
+.flag-ioc-smr {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/smr.png);
+}
+
+.flag-ioc-som {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/som.png);
+}
+
+.flag-ioc-spm {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/spm.png);
+}
+
+.flag-ioc-srb {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/srb.png);
+}
+
+.flag-ssd, .flag-ss, .flag-728 {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ssd.png);
+}
+
+.flag-ioc-stp {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/stp.png);
+}
+
+.flag-ioc-sur {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/sur.png);
+}
+
+.flag-ioc-svk {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/svk.png);
+}
+
+.flag-ioc-slo {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/svn.png);
+}
+
+.flag-ioc-swe {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/swe.png);
+}
+
+.flag-ioc-swz {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/swz.png);
+}
+
+.flag-sxm, .flag-sx, .flag-534 {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/sxm.png);
+}
+
+.flag-ioc-sey {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/syc.png);
+}
+
+.flag-ioc-syr {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/syr.png);
+}
+
+.flag-ioc-tks {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tca.png);
+}
+
+.flag-ioc-cha {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tcd.png);
+}
+
+.flag-ioc-tog {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tog.png);
+}
+
+.flag-ioc-tha {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tha.png);
+}
+
+.flag-ioc-tjk {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tjk.png);
+}
+
+.flag-ioc- {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tkl.png);
+}
+
+.flag-ioc-tkm {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tkm.png);
+}
+
+.flag-ioc-tls {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tls.png);
+}
+
+.flag-ioc-tga {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tga.png);
+}
+
+.flag-ioc-tto {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tto.png);
+}
+
+.flag-ioc-tun {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tun.png);
+}
+
+.flag-ioc-tur {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tur.png);
+}
+
+.flag-ioc-tuv {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tuv.png);
+}
+
+.flag-twn, .flag-tw, .flag-158 {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/twn.png);
+}
+
+.flag-ioc-tan {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tza.png);
+}
+
+.flag-ioc-uga {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/uga.png);
+}
+
+.flag-ioc-ukr {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ukr.png);
+}
+
+.flag-umi, .flag-um, .flag-581 {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/umi.png);
+}
+
+.flag-ioc-uru {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ury.png);
+}
+
+.flag-ioc-usa {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/usa.png);
+}
+
+.flag-ioc-uzb {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/uzb.png);
+}
+
+.flag-ioc- {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/vat.png);
+}
+
+.flag-ioc-vin {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/vct.png);
+}
+
+.flag-ioc-ven {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/ven.png);
+}
+
+.flag-ioc-ivb {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/vgb.png);
+}
+
+.flag-ioc-isv {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/vir.png);
+}
+
+.flag-ioc-vie {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/vnm.png);
+}
+
+.flag-ioc-van {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/vut.png);
+}
+
+.flag-ioc-waf {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/wlf.png);
+}
+
+.flag-ioc-sam {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/wsm.png);
+}
+
+.flag-ioc-yem {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/yem.png);
+}
+
+.flag-ioc-rsa {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/rsa.png);
+}
+
+.flag-ioc-zam {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/zmb.png);
+}
+
+.flag-ioc-zim {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/zwe.png);
+}
+
+.flag-fifa-eng {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/eng.png);
+}
+
+.flag-eur, .flag-eu {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/eur.png);
+}
+
+.flag-ioc-kos {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/kos.png);
+}
+
+.flag-fifa-nir {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/nir.png);
+}
+
+.flag-fifa-sco {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/sco.png);
+}
+
+.flag-fifa-wal {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/wal.png);
+}
+
+.flag-ioc-oar {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/oar.png);
+}
+
+.flag-ioc-cor {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/kuf.png);
+}
+
+.flag-ioc-tpe {
+  background-image: url(https://interactive.guim.co.uk/atoms/2018/02/olympic-flags-live/tpe.png);
+}
+
+</style>
+
+<a href='https://www.theguardian.com/sport/ng-interactive/2018/feb/09/winter-olympics-latest-medal-table-for-pyeongchang-2018' class='pye-wrapper'>
+
+<div class='pye-snap'>
+	{{#snapTable}}
+    <div class="pye-item">
+
+        <div class="pye-country">
+
+            <span class="pye-rank">{{{rank}}}</span>
+            <span class="pye-flag flag-ioc-{{code}}"></span>
+            <span class="pye-name">{{name}}</span>
+
+        </div>
+
+        <div class='pye-medals'>
+
+            <span class="pye-medal pye-gold"></span>
+            <span class="pye-num">{{gold}}</span>
+
+            <span class="pye-medal pye-silver"></span>
+            <span class="pye-num">{{silver}}</span>
+
+            <span class="pye-medal pye-bronze"></span>
+            <span class="pye-num">{{bronze}}</span>
+
+            <span class="pye-stack">
+                <span class="pye-medal pye-medal--stacked pye-gold"></span>
+                <span class="pye-medal pye-medal--stacked pye-silver" ></span>
+                <span class="pye-medal pye-medal--stacked pye-bronze"></span>
+            </span>
+
+            <span class="pye-num">{{total}}</span>
+
+        </div>
+
+    </div>
+    {{/snapTable}}
+
+    <span class='pye-link-text'>All medals and leaders</span>
+    <div class='pye-arrow'></div>
+</div>
+
+</a>
