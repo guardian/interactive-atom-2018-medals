@@ -18,6 +18,7 @@
 
 	@include mq(leftCol) {
 		margin-top: -28px;
+
 	}
 
 	@include mq(wide) {
@@ -141,6 +142,7 @@
 
 	@include mq(leftCol) {
 		margin-left: 160px;
+		min-height: 320px;
 	}
 
 	@include mq(wide) {

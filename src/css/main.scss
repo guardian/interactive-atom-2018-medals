@@ -25,7 +25,7 @@ $highlight: #FFE500;
  	@include mq(leftCol) {
 		 margin-top: 96px;
      }
-    
+
 }
 
 .pye-stream {
@@ -45,7 +45,7 @@ $highlight: #FFE500;
         & iframe {
             min-width: 860px !important;
         }
-        
+
     }
 
     @include mq($until: nohover) {
@@ -185,8 +185,19 @@ $highlight: #FFE500;
         font-weight: 700;
         color: #000;
         background-color: #ffe500;
-        padding: 3px 5px 3px
+        padding: 3px 5px 3px;
+
+
     }
+
+    &.fullList{
+      padding-top: 20px;
+      &:before {
+        display: none;
+      }
+
+    }
+
     @include mq(mobile) {
         position: relative;
         z-index: 10;
@@ -218,7 +229,7 @@ $highlight: #FFE500;
         background-color: #ffe500;
         padding: 3px 5px 0px;
         z-index: 3;
-        
+
         @include mq(mobile) {
             font-size: 32px;
             line-height: 34px;
@@ -233,7 +244,7 @@ $highlight: #FFE500;
         }
 
         @include mq(tablet) {
-           max-width: 600px 
+           max-width: 600px
         }
 
         @include mq(leftCol) {
@@ -279,7 +290,7 @@ $highlight: #FFE500;
     @include mq(mobile) {
         display: none;
     }
-    
+
     @include mq(tablet) {
         display: block;
     }
@@ -308,7 +319,7 @@ $highlight: #FFE500;
         width: calc(90vw);
         justify-content: flex-start;
     }
-    
+
     @include mq(wide) {
         justify-content: space-around;
         width: 100%;
@@ -325,7 +336,7 @@ $highlight: #FFE500;
         padding-right: 10px;
         margin-bottom: 25px;
     }
-    
+
     @include mq(tablet) {
         width: 300px;
         margin-bottom: 45px;
@@ -558,11 +569,11 @@ $highlight: #FFE500;
     @include mq(tablet) {
         flex-direction: row;
     }
-    
+
     @include mq(tablet) {
         @include fs-textSans(1);
     }
-    
+
     &--header {
         cursor: pointer;
         align-items: center;
@@ -634,7 +645,7 @@ $highlight: #FFE500;
     border-radius: 50%;
     height: 32px;
     width: 32px;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -webkit-tap-highlight-color: transparent;
     &--expand {
         background: #fff;
@@ -674,7 +685,7 @@ $highlight: #FFE500;
         @include fs-textSans(3);
         margin-top: 0;
     }
-    
+
     @include mq(tablet) {
         flex-direction: column;
         @include fs-textSans(1);
@@ -858,7 +869,7 @@ $highlight: #FFE500;
         font-weight: 700;
         margin-bottom: 20px;
         margin-left: -20px;
-        
+
     }
     @include mq(tablet) {
         flex-direction: row;
@@ -901,7 +912,7 @@ $highlight: #FFE500;
     @include mq(wide) {
         justify-content: space-between;
     }
-    
+
     p {
         @include fs-bodyCopy(2);
         line-height: 22px;
@@ -1096,7 +1107,7 @@ $highlight: #FFE500;
         display: inline-block;
         margin-left: 0;
         position: relative;
-        // z-index: 
+        // z-index:
 
         &.medal-block--gold {
             z-index: 3;

@@ -215,9 +215,15 @@ export async function render() {
     //     return matchAbbrev ? Object.assign({}, discipline, { url: matchAbbrev.url, captionLineOne: matchAbbrev.caption_line_1, captionLineTwo: matchAbbrev.caption_line_2 }) : discipline;
     // })
 
-    var countryTotals = sortCountries(doc.sheets.data)
+    var medalTable = sortCountries(doc.sheets.data)
 
-    console.log(countryTotals)
+    medalTable.forEach(c =>{
+      c.goldList = new Array(Number(c.gold));
+      c.silverList = new Array(Number(c.silver));
+      c.bronzeList = new Array(Number(c.bronze));
+
+      c.abbreviation = doc.sheets.ioc_lookup.find(item => item.country === c.country).ioc.toLowerCase();
+    })
 
     const renderHeader = Mustache.render(header, {
         "headlineFirst": doc.sheets.header[0].headlineFirst,
@@ -227,16 +233,12 @@ export async function render() {
     });
 
     const html = "<div class='page-wrapper'>" + renderHeader +
-    // Mustache.render(templateHTML, {
-    //     "otherCountries": medalTable.slice(6),
-    //     // "otherCountries": medalTable.slice(10),
-    //     "topCountries": medalTable.slice(0, 3),
-    //     "secondTierCountries": medalTable.slice(3, 6),
-    //     // "topCountries": medalTable.slice(0, 10),
-    //     "medalsByDiscipline": medalsWithUrls,
-    //     "medalsComingThrough": medalsWithUrls.length > 0,
-    //     "countriesByPeformance": countriesByPerformance
-    // }) +
+    Mustache.render(templateHTML, {
+        "otherCountries": medalTable.slice(6),
+        "topCountries": medalTable.slice(0, 6),
+        "secondTierCountries": [],
+        "about": doc.sheets.header[0].about
+    }) +
     "</div>";
 
     return html
