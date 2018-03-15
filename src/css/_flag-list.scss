@@ -246,7 +246,7 @@
 @include flag(tkl, tk, 772, null, tkl);
 @include flag(tkm, tm, 795, tkm, tkm);
 @include flag(tls, tl, 626, tls, tls);
-@include flag(tga, to, 776, tga, tga); 
+@include flag(tga, to, 776, tga, tga);
 @include flag(tto, tt, 780, tto, tri);
 @include flag(tun, tn, 788, tun, tun);
 @include flag(tur, tr, 792, tur, tur);
@@ -303,9 +303,13 @@
 }
 
 .flag-ioc-cor {
-  background-image: unquote("url(#{$flag-css-path}/kuf.png)"); // was named differently, but correct flag 
+  background-image: unquote("url(#{$flag-css-path}/kuf.png)"); // was named differently, but correct flag
 }
 
 .flag-ioc-tpe {
   background-image: unquote("url(#{$flag-css-path}/tpe.png)");
+}
+
+.flag-ioc-npa {
+  background-image: unquote("url(#{$flag-css-path}/npa.png)");
 }

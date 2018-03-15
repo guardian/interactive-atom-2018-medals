@@ -201,7 +201,7 @@ function sortCountries(countries){
     return sorted
 }
 
-
+ 
 export async function render() {
     const header = headerHTML;
 
