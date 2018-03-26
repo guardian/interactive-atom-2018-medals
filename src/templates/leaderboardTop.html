@@ -1,0 +1,133 @@
+<div class="block" data-title="Leaderboard">
+    <div class="leaderboard-top">
+    {{#topCountries}}
+    <div class="country-block {{abbreviation}}">
+        <div class="country-header-wrapper">
+
+            {{#noMedals}}
+            <span class='pye-rank-dash'>–</span>
+            {{/noMedals}} {{^noMedals}}
+            <img class="number" src="<%= path %>/assets/numbers/{{rank}}.svg" /> {{/noMedals}}
+
+
+            <div class="country-header">
+                <div class="flag flag-ioc-{{abbreviation}} flag-large"></div>
+                <div class="top-country-name">{{country}}</div>
+            </div>
+        </div>
+        <div class="medals">
+
+            <div class="top-medals">
+                {{#gold}} {{#goldList}}
+                <div class="medal-block medal-block--gold"></div>
+                {{/goldList}}
+                <span class="medals-total">{{gold}}</span>
+                {{/gold}}
+            </div>
+            <div class="top-medals">
+                {{#silver}} {{#silverList}}
+                <div class="medal-block medal-block--silver"></div>
+                {{/silverList}}
+                <span class="medals-total">{{silver}}</span>
+                {{/silver}}
+            </div>
+            <div class="top-medals">
+                {{#bronze}} {{#bronzeList}}
+                <div class="medal-block medal-block--bronze"></div>
+                {{/bronzeList}}
+                <span class="medals-total">{{bronze}}</span>
+                {{/bronze}}
+            </div>
+            <img class="big-total" src="<%= path %>/assets/T.svg" alt="">
+            <span class="medals-total">
+                {{total}}
+            </span>
+        </div>
+    </div>
+    {{/topCountries}}
+    {{#secondTierCountries}}
+    <div class="second-tier-desktop">
+        <div class="country-block {{abbreviation}}">
+            <div class="country-header-wrapper">
+
+                {{#noMedals}}
+                <span class='pye-rank-dash'>–</span>
+                {{/noMedals}} {{^noMedals}}
+                <img class="number" src="<%= path %>/assets/numbers/{{rank}}.svg" /> {{/noMedals}}
+
+
+                <div class="country-header">
+                    <div class="flag flag-ioc-{{abbreviation}} flag-large"></div>
+                    <div class="top-country-name">{{country}}</div>
+                </div>
+            </div>
+            <div class="medals">
+
+                <div class="top-medals">
+                    {{#gold}} {{#goldList}}
+                    <div class="medal-block medal-block--gold"></div>
+                    {{/goldList}}
+                    <span class="medals-total">{{gold}}</span>
+                    {{/gold}}
+                </div>
+                <div class="top-medals">
+                    {{#silver}} {{#silverList}}
+                    <div class="medal-block medal-block--silver"></div>
+                    {{/silverList}}
+                    <span class="medals-total">{{silver}}</span>
+                    {{/silver}}
+                </div>
+                <div class="top-medals">
+                    {{#bronze}} {{#bronzeList}}
+                    <div class="medal-block medal-block--bronze"></div>
+                    {{/bronzeList}}
+                    <span class="medals-total">{{bronze}}</span>
+                    {{/bronze}}
+                </div>
+                <img class="big-total" src="<%= path %>/assets/T.svg" alt="">
+                <span class="medals-total">
+                    {{total}}
+                </span>
+            </div>
+        </div>
+    </div>
+    {{/secondTierCountries}}
+    </div>
+    <div class="other-country-block--full {{abbreviation}} second-tier-mobile">
+    {{#secondTierCountries}}
+        <div class="other-country">
+            <div class="rank-flag">
+                <span class="other-country-rank">{{{rank}}}</span>
+                <span class="flag flag-ioc-{{abbreviation}} flag-medium flag-margin"></span>
+            </div>
+            <div class="other-country-details">
+                <div class="other-country-name">
+                    {{country}}
+                </div>
+                <span class="other-country-medals">
+                    <div class="medal-pair">
+                        <span class="medal-block medal-block--gold medal-block--small"></span>
+                        {{gold}}
+                    </div>
+                    <div class="medal-pair">
+                        <span class="medal-block medal-block--silver medal-block--small"></span>
+                        {{silver}}
+                    </div>
+                    <div class="medal-pair">
+                        <span class="medal-block medal-block--bronze medal-block--small"></span>
+                        {{bronze}}
+                    </div>
+                    <div class="medal-pair medal-pair--all">
+                        <div class="medal-stack">
+                            <span class="medal-block medal-block--gold medal-block--small"></span>
+                            <span class="medal-block medal-block--silver medal-block--small"></span>
+                            <span class="medal-block medal-block--bronze medal-block--small"></span>
+                        </div>
+                        {{total}}
+                    </div>
+                </span>
+            </div>
+        </div>
+    {{/secondTierCountries}}
+    </div>
+</div>
