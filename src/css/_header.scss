@@ -264,23 +264,24 @@
 
 .ol-logo {
 	position: absolute;
+	padding-top: 6px;
 
 	img {
 		@include mq(mobile) {
-			height: 62px;
+			height: 44px;
 			margin-left: 9px;
 		}
 
 		@include mq(desktop) {
-			height: 90px;
+			height: 52px;
 		}
 
 		@include mq(leftCol) {
-			height: 62px;
+			height: 34px;
 		}
 
 		@include mq(wide) {
-			height: 90px;
+			height: 52px;
 		}
 	}
 }
