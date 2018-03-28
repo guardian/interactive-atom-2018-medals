@@ -1,0 +1,39 @@
+<div class="block fullList">
+    <div class="other-country-block {{abbreviation}}">
+        {{#otherCountries}}
+            <div class="other-country">
+                <div class="rank-flag">
+                    <span class="other-country-rank">{{{rank}}}</span>
+                    <span class="flag flag-ioc-{{abbreviation}} flag-medium flag-margin"></span>
+                </div>
+                <div class="other-country-details">
+                    <div class="other-country-name">
+                        {{country}}
+                    </div>
+                    <span class="other-country-medals">
+                        <div class="medal-pair">
+                            <span class="medal-block medal-block--gold medal-block--small"></span>
+                            {{gold}}
+                        </div>
+                        <div class="medal-pair">
+                            <span class="medal-block medal-block--silver medal-block--small"></span>
+                            {{silver}}
+                        </div>
+                        <div class="medal-pair">
+                            <span class="medal-block medal-block--bronze medal-block--small"></span>
+                            {{bronze}}
+                        </div>
+                        <div class="medal-pair medal-pair--all">
+                    <div class="medal-stack">
+                        <span class="medal-block medal-block--gold medal-block--small"></span>
+                        <span class="medal-block medal-block--silver medal-block--small"></span>
+                        <span class="medal-block medal-block--bronze medal-block--small"></span>
+                    </div>
+                    {{total}}
+                    </div>
+                    </span>
+                </div>
+            </div>
+        {{/otherCountries}}
+    </div>
+</div>
