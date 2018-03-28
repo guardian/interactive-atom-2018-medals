@@ -66,13 +66,14 @@ const rankReduce = (interm, cur, i, arr) => {
 
 function sortCountries(countries){
 
-
+    countries = orderBy(countries, [ 'gold', 'silver', 'bronze' ], ['desc', 'desc', 'desc'])
+    console.log('here', countries)
     var ranks = countries.reduce(rankReduce, []).map(i => i + 1)
 
     var sorted = countries.map( (c, i) => Object.assign({}, c, { rank : ranks[i] }))
-        sorted = orderBy(sorted, [[ 'rank', 'country' ], ['asc', 'asc']])
+        sorted = orderBy(sorted, [ 'rank', 'country' ], ['asc', 'asc'])
 
-        return sorted
+    return sorted
 }
 
 
@@ -82,8 +83,27 @@ function init(){
 
 	axios.get('https://interactive.guim.co.uk/docsdata-test/1PBYUvBmMRIcvqPEYSPgHQmSAtoCQBAjsGAVdnBvh-VA.json').then((resp) => {
 		var sheets = resp.data.sheets;
+        var allCountries = sheets.data;
 
-		var medalTable = sortCountries(sheets.data)
+        var countriesData = {};
+        allCountries.forEach(c =>{
+            countriesData[c.country] = c;
+            c.gold = Number(c.gold);
+            c.bronze = Number(c.bronze);
+            c.silver = Number(c.silver);
+            c.total = Number(c.total);
+        })
+
+        sheets.countries.forEach(c =>{
+            if( !countriesData[c.country]){
+                c.gold = c.silver = c.bronze = c.total = 0;
+                allCountries.push(c);
+            }
+
+        })
+
+        console.log(allCountries)
+		var medalTable = sortCountries(allCountries)
 
 		medalTable.forEach(c =>{
 			c.goldList = new Array(Number(c.gold));
@@ -95,16 +115,16 @@ function init(){
 		  
 		// render just the html for the blocks
 		document.querySelector('.leaderboardTop').innerHTML = Mustache.render(leaderboardTop, {
-			"otherCountries": medalTable.slice(6),
-			"topCountries": medalTable.slice(0, 6),
+			"otherCountries": medalTable.slice(3),
+			"topCountries": medalTable.slice(0, 3),
 			"secondTierCountries": [],
-		}) 
+		}).replace(/<%= path %>/g, process.env.PATH)
 
 		document.querySelector('.leaderboardBottom').innerHTML = Mustache.render(leaderboardBottom, {
-			"otherCountries": medalTable.slice(6),
-			"topCountries": medalTable.slice(0, 6),
+			"otherCountries": medalTable.slice(3),
+			"topCountries": medalTable.slice(0, 3),
 			"secondTierCountries": [],
-		}) 
+		}).replace(/<%= path %>/g, process.env.PATH)
 
 		// inject that rendered html into the empty div we declared in main.html
 		//document.querySelector(".interactive-blocks").innerHTML = html;

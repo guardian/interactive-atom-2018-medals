@@ -206,7 +206,7 @@ export async function render() {
     const header = headerHTML;
 
 
-    const doc = await rp({ uri: "https://interactive.guim.co.uk/docsdata-test/1HKmbHIyo5Wv9ugAvVjv1G6p-mdU1kXjHLCMlZlnaNlE.json", json: true });
+    const doc = await rp({ uri: "https://interactive.guim.co.uk/docsdata-test/1PBYUvBmMRIcvqPEYSPgHQmSAtoCQBAjsGAVdnBvh-VA.json", json: true });
     //
     //
     // const medalsWithUrls = nestedMedalsByDiscipline.map(discipline => {
@@ -217,13 +217,13 @@ export async function render() {
 
     var medalTable = sortCountries(doc.sheets.data)
 
-    medalTable.forEach(c =>{
-      c.goldList = new Array(Number(c.gold));
-      c.silverList = new Array(Number(c.silver));
-      c.bronzeList = new Array(Number(c.bronze));
+    // medalTable.forEach(c =>{
+    //   c.goldList = new Array(Number(c.gold));
+    //   c.silverList = new Array(Number(c.silver));
+    //   c.bronzeList = new Array(Number(c.bronze));
 
-      c.abbreviation = doc.sheets.ioc_lookup.find(item => item.country === c.country).ioc.toLowerCase();
-    })
+    //   c.abbreviation = doc.sheets.ioc_lookup.find(item => item.country === c.country).ioc.toLowerCase();
+    // })
 
     const renderHeader = Mustache.render(header, {
         "headlineFirst": doc.sheets.header[0].headlineFirst,
@@ -234,9 +234,6 @@ export async function render() {
 
     const html = "<div class='page-wrapper'>" + renderHeader +
     Mustache.render(templateHTML, {
-        "otherCountries": medalTable.slice(6),
-        "topCountries": medalTable.slice(0, 6),
-        "secondTierCountries": [],
         "about": doc.sheets.header[0].about
     }) +
     "</div>";
