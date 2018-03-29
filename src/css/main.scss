@@ -303,13 +303,13 @@ $highlight: #FFE500;
     @include mq(mobile) {
         flex-direction: column;
         width: 100%;
-        margin-bottom: -112px;
+        //margin-bottom: -112px;
     }
     @include mq(tablet) {
         flex-direction: row;
         width: 700px;
         justify-content: space-between;
-        margin-bottom: -130px;
+        //margin-bottom: -130px;
     }
     @include mq(desktop) {
         width: calc(100vw - 20px);
