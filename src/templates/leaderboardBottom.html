@@ -3,7 +3,12 @@
         {{#otherCountries}}
             <div class="other-country">
                 <div class="rank-flag">
-                    <span class="other-country-rank">{{{rank}}}</span>
+                        {{#noMedals}}
+                        <span class="other-country-rank">-</span>
+                        {{/noMedals}}
+                        {{^noMedals}}
+                        <span class="other-country-rank">{{{rank}}}</span>
+                        {{/noMedals}}
                     <span class="flag flag-{{abbreviation}} flag-medium flag-margin"></span>
                 </div>
                 <div class="other-country-details">

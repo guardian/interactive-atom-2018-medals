@@ -322,7 +322,7 @@ $highlight: #FFE500;
     }
 
     @include mq(wide) {
-        justify-content: space-around;
+        justify-content: flex-start;
         width: 100%;
     }
 }

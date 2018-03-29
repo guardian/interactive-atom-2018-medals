@@ -102,27 +102,40 @@ function init(){
 
         })
 
-        console.log(allCountries)
+        
 		var medalTable = sortCountries(allCountries)
 
 		medalTable.forEach(c =>{
 			c.goldList = new Array(Number(c.gold));
 			c.silverList = new Array(Number(c.silver));
 			c.bronzeList = new Array(Number(c.bronze));
-	  
+            
+            if(c.total == 0){
+                c.noMedals = true;
+            } else {
+                c.noMedals = false;
+            }
+
 			c.abbreviation = sheets.countries.find(item => item.country === c.country).code.toLowerCase();
 		  })
-		  
+          
+        var totalTopTier = 3;
+        var hasMedals = medalTable.filter(country => country.total > 0);
+
+        if(hasMedals.length < 3){
+            totalTopTier = hasMedals.length
+        }
+
 		// render just the html for the blocks
 		document.querySelector('.leaderboardTop').innerHTML = Mustache.render(leaderboardTop, {
-			"otherCountries": medalTable.slice(3),
-			"topCountries": medalTable.slice(0, 3),
+			"otherCountries": medalTable.slice(totalTopTier),
+			"topCountries": medalTable.slice(0, totalTopTier),
 			"secondTierCountries": [],
 		}).replace(/<%= path %>/g, process.env.PATH)
 
 		document.querySelector('.leaderboardBottom').innerHTML = Mustache.render(leaderboardBottom, {
-			"otherCountries": medalTable.slice(3),
-			"topCountries": medalTable.slice(0, 3),
+			"otherCountries": medalTable.slice(totalTopTier),
+			"topCountries": medalTable.slice(0, totalTopTier),
 			"secondTierCountries": [],
 		}).replace(/<%= path %>/g, process.env.PATH)
 
