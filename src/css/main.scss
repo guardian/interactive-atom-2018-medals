@@ -267,7 +267,7 @@ $highlight: #FFE500;
 }
 
 .top-country-name {
-    white-space: nowrap;
+    white-space: wrap;
     overflow: hidden;
     text-overflow: ellipsis;
     @include mq(tablet) {
@@ -303,13 +303,13 @@ $highlight: #FFE500;
     @include mq(mobile) {
         flex-direction: column;
         width: 100%;
-        margin-bottom: 0;
+        margin-bottom: -112px;
     }
     @include mq(tablet) {
         flex-direction: row;
         width: 700px;
         justify-content: space-between;
-        margin-bottom: -40px;
+        margin-bottom: -130px;
     }
     @include mq(desktop) {
         width: calc(100vw - 20px);
@@ -396,21 +396,21 @@ $highlight: #FFE500;
 }
 
 .country-header {
-    display: flex;
-    flex-direction: column;
     position: relative;
+    height: 80px;
     @include mq(mobile) {
-        @include fs-headline(6);
+        @include fs-headline(4);
         font-weight: 700;
     }
     @include mq(tablet) {
-        @include fs-headline(8);
+        height: 110px;
+        @include fs-headline(6);
         font-weight: 700;
     }
 }
 
 .country-header-wrapper {
-    display: flex;
+    display: inline;
 }
 
 .medal-total-small {
@@ -500,8 +500,9 @@ $highlight: #FFE500;
 
 .number {
     padding-right: 5px;
-    flex-shrink: 0;
-    flex-grow: 0;
+    display: inline;
+    float: left;
+
     @include mq(mobile) {
         height: 55px;
     }
@@ -810,7 +811,7 @@ $highlight: #FFE500;
 }
 
 .other-country-name {
-    @include fs-headline(5);
+    @include fs-headline(4);
     font-weight: 700;
     padding-right: 40px;
     // margin-top: 9px;
@@ -823,6 +824,8 @@ $highlight: #FFE500;
     }
 
      @include mq(tablet) {
+         @include fs-headline(5);
+         font-weight: 700;
          padding-left: 0;
          width: 250px;
      }
