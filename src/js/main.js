@@ -115,14 +115,19 @@ function init(){
             } else {
                 c.noMedals = false;
             }
-
-			c.abbreviation = sheets.countries.find(item => item.country === c.country).code.toLowerCase();
+            try {
+                c.abbreviation = sheets.countries.find(item => item.country === c.country).code.toLowerCase();
+            }
+            catch(error) {
+                console.log("Country name in data tab does not match country tab in sheet: " + c.country)
+                c.abbreviation = '';
+            }
 		  })
           
         var totalTopTier = 3;
         var hasMedals = medalTable.filter(country => country.total > 0);
-
-        if(hasMedals.length < 3){
+          console.log(hasMedals)
+        if(hasMedals.length < 4){
             totalTopTier = hasMedals.length
         }
 
