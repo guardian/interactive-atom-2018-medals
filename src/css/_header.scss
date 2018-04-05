@@ -107,7 +107,7 @@
 	}
 }
 
-.ol-standfirst {
+.ol-standfirst, .ol-links {
 	color: #121212;
 	margin-top: 24px;
 	padding-left: 10px;
@@ -134,7 +134,27 @@
 		font-size: 20px;
 		line-height: 24px;
 	}
+
+
+	a{
+		text-decoration: none;
+
+	}
+	a:hover{
+		    text-decoration: none !important;
+		    border-bottom: 0.0625rem solid #005689;
+		    -webkit-transition: border-color .15s ease-out;
+		    transition: border-color .15s ease-out;
+	}
+
+	.bullet:before{
+		background-color:#005689 !important;
+	}
+
+
 }
+
+
 
 .ol-wrapper {
 	max-width: 350px;
@@ -162,7 +182,7 @@
     top:0;
     animation-name: fade;
     animation-iteration-count: infinite;
-    animation-duration: 12.5s;
+    animation-duration: 10s; 
 		opacity: 0;
 		@include mq(mobile) {
 			position: absolute;

@@ -67,7 +67,7 @@ const rankReduce = (interm, cur, i, arr) => {
 function sortCountries(countries){
 
     countries = orderBy(countries, [ 'gold', 'silver', 'bronze' ], ['desc', 'desc', 'desc'])
-    console.log('here', countries)
+    //console.log('here', countries)
     var ranks = countries.reduce(rankReduce, []).map(i => i + 1)
 
     var sorted = countries.map( (c, i) => Object.assign({}, c, { rank : ranks[i] }))
@@ -77,13 +77,37 @@ function sortCountries(countries){
 }
 
 
+function updateHeaderCopy(d){
+    console.log(d.linkOneCopy);
+    var htmlStr = "";
+
+    if(d.linkOneURL){
+       htmlStr = htmlStr+"<span class='bullet'>•</span><a href='"+d.linkOneURL+"'>"+d.linkOneCopy+"</a>"; 
+    }
+
+    if(d.linkTwoURL){
+       htmlStr = htmlStr+"<br/><span class='bullet'>•</span><a href='"+d.linkTwoURL+"'>"+d.linkTwoCopy+"</a>"; 
+    }
+
+    if(htmlStr !== null && htmlStr !== '') {
+       document.getElementById("headerLinks").innerHTML = htmlStr;
+    }
+    
+
+     if(htmlStr == null || htmlStr == '') {
+       document.getElementById("headerLinks").innerHTML.style.display = "none";
+    }
+}
+
+
 function init(){
-
-
 
 	axios.get('https://interactive.guim.co.uk/docsdata-test/1PBYUvBmMRIcvqPEYSPgHQmSAtoCQBAjsGAVdnBvh-VA.json').then((resp) => {
 		var sheets = resp.data.sheets;
         var allCountries = sheets.data;
+      
+
+        updateHeaderCopy(sheets.header[0]);
 
         var countriesData = {};
         allCountries.forEach(c =>{
@@ -147,6 +171,9 @@ function init(){
 		// inject that rendered html into the empty div we declared in main.html
 		//document.querySelector(".interactive-blocks").innerHTML = html;
 	});
+
+
+    
 
    
 }
